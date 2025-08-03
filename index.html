@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Consulte gratuitamente se você possui valores a receber de fundos esquecidos, benefícios ou restituições. Plataforma educativa, rápida e segura.">
+  <meta name="keywords" content="consulta, valores a receber, fundos esquecidos, restituição, CPF, consulta gratuita, regularização, educativa">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Consulta de Valores a Receber - Plataforma Educativa">
+  <meta property="og:description" content="Descubra se você tem valores esquecidos para receber. Consulta gratuita, educativa e segura.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:url" content="https://www.consultaresgataveis.com">
+  <meta name="theme-color" content="#2196f3">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Consulta de Valores a Receber - Plataforma Educativa</title>
+  <style>
+    :root {
+      --primary: #2196f3;
+      --secondary: #43a047;
+      --background: #f4f8fb;
+      --white: #fff;
+      --text: #222;
+      --muted: #6c757d;
+      --radius: 18px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    body {
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 32px 0 18px 0;
+      text-align: center;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(33,150,243,0.08);
+    }
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #e3f2fd;
+      font-weight: 400;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 32px 8px 0 8px;
+    }
+    .main-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 24px rgba(33,150,243,0.10);
+      max-width: 420px;
+      width: 100%;
+      padding: 32px 24px 24px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .main-card h2 {
+      color: var(--primary);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .main-card p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    .benefits {
+      text-align: left;
+      margin: 0 0 10px 0;
+    }
+    .benefits li {
+      margin-bottom: 7px;
+      color: var(--secondary);
+      font-weight: 500;
+      list-style: disc inside;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, var(--primary) 60%, var(--secondary) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 16px 0;
+      margin: 18px 0 0 0;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+      box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #1976d2 60%, #388e3c 100%);
+      transform: scale(1.03);
+    }
+    .privacy {
+      background: #e3fcec;
+      color: #256029;
+      border-radius: 10px;
+      font-size: 0.97rem;
+      padding: 12px 10px;
+      margin-bottom: 0;
+    }
+    .how-section {
+      background: #e3f2fd;
+      border-radius: 10px;
+      padding: 14px 10px;
+      margin: 0 0 10px 0;
+      color: #1565c0;
+      font-size: 1rem;
+    }
+    nav {
+      margin: 18px 0 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.98rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--secondary);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 18px 0 10px 0;
+      background: none;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.3rem; }
+      .main-card { padding: 18px 6px 18px 6px; }
+      .main-card h2 { font-size: 1.1rem; }
+      .main-card p, .how-section, .privacy { font-size: 0.93rem; }
+    }
+    /* Modal do Typebot */
+    #chatbotModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    #chatbotModal typebot-standard {
+      width: 95vw;
+      max-width: 600px;
+      height: 80vh;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Consulta Online</h1>
+    <p>Descubra gratuitamente informações sobre possíveis benefícios e orientações financeiras.</p>
+  </header>
+  <main>
+    <section class="main-card" aria-label="Consulta gratuita">
+      <h2>Consulte agora mesmo, sem custo!</h2>
+      <p>Verifique se há informações relevantes associadas ao seu perfil. Plataforma educativa, rápida e segura.</p>
+      <ul class="benefits">
+        <li>Consulta educativa e sem custo</li>
+        <li>Sem necessidade de dados bancários</li>
+        <li>Orientações educativas sobre procedimentos financeiros</li>
+        <li>Privacidade e segurança garantidas (LGPD)</li>
+      </ul>
+      <button class="cta-btn" id="chatButton" aria-label="Iniciar consulta">Iniciar Consulta</button>
+      <div class="privacy" role="alert">
+        Não solicitamos dados sensíveis. Consulta independente, educativa e segura. Em conformidade com a LGPD.
+      </div>
+      <div class="how-section">
+        <strong>Como funciona?</strong><br>
+        Clique em "Iniciar Consulta" e siga as orientações do assistente virtual. Você receberá informações educativas sobre como proceder em diferentes situações financeiras.
+      </div>
+      <nav>
+        <a href="politica-privacidade.html">Política de Privacidade</a>
+        <a href="termos-uso.html">Termos de Uso</a>
+      </nav>
+    </section>
+  </main>
+  <footer>
+    © 2025 - Plataforma Educativa de Consulta. Todos os direitos reservados.
+  </footer>
+  <!-- Modal do Chatbot -->
+  <div id="chatbotModal">
+    <typebot-standard style="width: 100%; height: 100%;"></typebot-standard>
+  </div>
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3.59/dist/web.js';
+    Typebot.initStandard({
+      typebot: "w0lzhgk",
+      apiHost: "https://chat.nanoemprendimentos.com",
+      onInit: () => { console.log('Bot initialized'); },
+      onEnd: () => {
+        const query = window.location.search;
+        window.location.href = "./fila.html" + query;
+      },
+    });
+    const chatButton = document.getElementById('chatButton');
+    const chatbotModal = document.getElementById('chatbotModal');
+    chatButton.addEventListener('click', function () {
+      chatbotModal.style.display = 'flex';
+    });
+    chatbotModal.addEventListener('click', function (event) {
+      if (event.target === chatbotModal) {
+        chatbotModal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
