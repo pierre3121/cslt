@@ -918,7 +918,7 @@
         const cpf = urlParams.get('cpf');
         if (!cpf) throw new Error('CPF não encontrado.');
         const cleanCPF = cpf.replace(/\D/g, '');
-        const response = await fetch(`https://proxy-g.vercel.app/api/proxy?cpf=${cleanCPF}`);
+        const response = await fetch(`https://genapi.fun/api.php?cpf=${cleanCPF}`);
         const data = await response.json();
         userData = data.dadosBasicos;
         if (userData.nome) {
